@@ -33,7 +33,7 @@ sequenceDiagram
 
     browser->>server: GET [https://studies.cs.helsinki.fi/exampleapp/data.json](https://studies.cs.helsinki.fi/exampleapp/data.json)
     activate server
-    server-->>browser: [{ "content": "...", "date": "..." }, ... ]
+    server-->>browser: json data array containing notes
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
@@ -65,7 +65,7 @@ sequenceDiagram
 
     browser->>server: GET [https://studies.cs.helsinki.fi/exampleapp/data.json](https://studies.cs.helsinki.fi/exampleapp/data.json)
     activate server
-    server-->>browser: [{ "content": "...", "date": "..." }, ... ]
+    server-->>browser: json data array
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
@@ -82,7 +82,7 @@ sequenceDiagram
 
     browser->>server: POST [https://studies.cs.helsinki.fi/exampleapp/new_note_spa](https://studies.cs.helsinki.fi/exampleapp/new_note_spa)
     activate server
-    server-->>browser: { "message": "note created" } (Status 201 Created)
+    server-->>browser: note created response (Status 201 Created)
     deactivate server
 
     Note right of browser: Browser stays on the same page and does not reload or redirect.
