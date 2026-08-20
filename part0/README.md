@@ -2,8 +2,6 @@
 
 ## 0.4: New note diagram
 
-The following diagram illustrates the process when a user writes a new note on a traditional web page (https://studies.cs.helsinki.fi/exampleapp/notes) and clicks the Save button:
-
 ```mermaid
 sequenceDiagram
     participant browser
@@ -33,7 +31,7 @@ sequenceDiagram
 
     browser->>server: GET [https://studies.cs.helsinki.fi/exampleapp/data.json](https://studies.cs.helsinki.fi/exampleapp/data.json)
     activate server
-    server-->>browser: json data array containing notes
+    server-->>browser: json data array
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
