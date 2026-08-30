@@ -2,8 +2,6 @@
 
 ## 0.4: New note diagram
 
-The following diagram illustrates the process when a user writes a new note on a traditional web page (`https://studies.cs.helsinki.fi/exampleapp/notes`) and clicks the Save button:
-
 ```mermaid
 sequenceDiagram
     participant browser
@@ -33,17 +31,15 @@ sequenceDiagram
 
     browser->>server: GET [https://studies.cs.helsinki.fi/exampleapp/data.json](https://studies.cs.helsinki.fi/exampleapp/data.json)
     activate server
-    server-->>browser: [{ "content": "...", "date": "..." }, ... ]
+    server-->>browser: json data array
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
 
+### 0.5: Single page app diagram
 
-    ## 0.5: Single page app diagram
+The following diagram illustrates the situation when a user opens the single-page app version of the notes app (https://studies.cs.helsinki.fi/exampleapp/spa):
 
-The following diagram illustrates the situation when a user opens the single-page app version of the notes app at `https://studies.cs.helsinki.fi/exampleapp/spa`:
-
-```mermaid
 sequenceDiagram
     participant browser
     participant server
@@ -67,29 +63,24 @@ sequenceDiagram
 
     browser->>server: GET [https://studies.cs.helsinki.fi/exampleapp/data.json](https://studies.cs.helsinki.fi/exampleapp/data.json)
     activate server
-    server-->>browser: [{ "content": "...", "date": "..." }, ... ]
+    server-->>browser: json data array
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
 
+#### 0.6: New note in Single page app diagram
 
+The following diagram illustrates the situation when a user creates a new note using the single-page version of the app (https://studies.cs.helsinki.fi/exampleapp/spa):
 
-    ## 0.6: New note in Single page app diagram
-
-The following diagram illustrates the situation when a user creates a new note using the single-page version of the app (`https://studies.cs.helsinki.fi/exampleapp/spa`):
-
-```mermaid
 sequenceDiagram
     participant browser
     participant server
 
     Note right of browser: User types a note and clicks Save. JS prevents default form submit, creates the note object, adds it to the list, and sends it to the server.
 
-    browser->>server: POST [https://studies.cs.helsinki.fi/exampleapp/new_note_spa](https://studies.cs.helsinki.fi/exampleapp/new_note_spa) (Content-Type: application/json)
+    browser->>server: POST [https://studies.cs.helsinki.fi/exampleapp/new_note_spa](https://studies.cs.helsinki.fi/exampleapp/new_note_spa)
     activate server
-    server-->>browser: { "message": "note created" } (Status 201 Created)
+    server-->>browser: note created response (Status 201 Created)
     deactivate server
 
     Note right of browser: Browser stays on the same page and does not reload or redirect.
-
-    
